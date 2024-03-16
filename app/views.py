@@ -28,3 +28,20 @@ def register(request):
             
     
     return render(request,'app/register.html',{'form':form})
+
+
+# for registering a uer in django noraml user 
+
+def register_user(request):
+    if request.method == 'POST':
+        username_user = request.POST.get('username')
+        password_user = request.POST.get('password1')
+        password_user_2 = request.POST.get('password2')
+        if password_user == password_user_2:
+
+             user = User.objects.create_user(username = username_user, password =password_user)
+             login(request,user)
+             return redirect('/')
+        return HttpResponse('Wrong password')
+
+    return render(request,'account_app/register.html')
