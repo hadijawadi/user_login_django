@@ -1,0 +1,12 @@
+{%extends 'app/login.html'%}
+{%block title%}
+registe page
+{%endblock title%}
+{%block content%}
+<h1 class="text-center mt-4">register page <span class="badge bg-danger">Register Yourself here </span></h1>
+<form action="" method="POST">
+    {%csrf_token%}
+    {{form}}
+    <button>register</button>
+</form>
+{%endblock%}
